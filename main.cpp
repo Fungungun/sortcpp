@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 #include "Rect_.h"
 
 using namespace std;
@@ -10,8 +11,7 @@ float calculateIOU(Rect_ r1, Rect_ r2){
     std::cout<<"Area of union is "<<un<<endl;
     return in/un;
 }
-
-int main(){
+void TestRect_(){
 
     Rect_ r1 = Rect_(10, 20, 10, 20);
     std::cout<<"Area of r1 is "<<r1.area()<<endl;
@@ -24,6 +24,28 @@ int main(){
 
     std::cout<<"IOU of r1 and r2 is "<<calculateIOU(r1, r2)<<endl;
 
+}
+
+typedef struct TrackingBox{
+    int frame;
+    int id;
+    Rect_ box;
+}TrackingBox;
+
+// some global variables
+#define CNUM 20
+int total_frames = 0;
+double total_time = 0.0;
+
+void TestSORT(string seqName, bool display){
+    std::cout<<"Testing sequence " + seqName<<endl;
+}
+int main(){
+    // TestRect_();
+    vector<string> sequences = {"PETS09-S2L1"};
+    for (auto seq: sequences){
+        TestSORT(seq, false);
+    }
     return 0;
 }
 
